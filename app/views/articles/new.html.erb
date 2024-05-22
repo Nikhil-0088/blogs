@@ -1,0 +1,26 @@
+<% content_for :title do %>
+  <%= "Compose Article" %>
+<% end %>
+<h1>New Article</h1>
+<%if @article.errors.any?%>
+   <h2>These errors did not allow the article to save</h2>
+   <ul>
+     <%@article.errors.full_messages.each do |msg|%>
+     <li>
+      <%=msg%>
+      </li>
+     <%end%>
+   </ul>
+<%end%>
+<%=form_with scope: :article, url: articles_path, local: true do |f|%>
+   <%= f.label :title,"Enter title:"%>
+   <br>
+   <%=f.text_field :title%>
+   <br>
+   <br>
+   <%=f.label :description,"Enter Description"%>
+   <br>
+   <%=f.text_area :description%>
+   <br>
+   <%=f.submit%>
+<%end%>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%# # dynamic titles fir each view %>
+    <title><%=yield :title%></title> 
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%flash.each do |k,v|%>
+       <%=v%>
+    <%end%>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<% content_for :title do %>
+  <%= "Article"+@article.id.to_s %>
+<% end %>
+    <h1>Showing Article details</h1>
+    <p><strong>Title:</strong><%=@article.title%></p>
+    <p><strong>Description:</strong><%=@article.description%></p>
+

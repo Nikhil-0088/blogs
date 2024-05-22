@@ -1,0 +1,26 @@
+<% content_for :title do %>
+  <%= "Editing Article" + @article.id.to_s %>
+<% end %>
+<h1>Update Article </h1>
+<%if @article.errors.any?%>
+   <h2>These errors did not allow the article to save</h2>
+   <ul>
+     <%@article.errors.full_messages.each do |msg|%>
+     <li>
+      <%=msg%>
+      </li>
+     <%end%>
+   </ul>
+<%end%>
+<%= form_with(model: @article , local: true) do |f|%>
+   <%= f.label :title,"Enter title:"%>
+   <br>
+   <%=f.text_field :title%>
+   <br>
+   <br>
+   <%=f.label :description,"Enter Description"%>
+   <br>
+   <%=f.text_area :description%>
+   <br>
+   <%=f.submit%>
+<%end%>
